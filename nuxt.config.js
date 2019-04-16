@@ -34,6 +34,10 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  css: [
+    '~/assets/css/colors.css',
+    '~/assets/css/app.css',
+  ]
 }
 
