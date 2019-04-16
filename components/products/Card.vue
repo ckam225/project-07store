@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="ribbon ribbon-top-right " v-if="inSold">
+        <div class="ribbon ribbon-top-right " v-if="inSolde">
             <span>{{ ribbon }}</span>
         </div> 
         <div class="card-thumb">
@@ -29,7 +29,7 @@ export default {
             type: String,
             default: ""
         },
-        inSold:{
+        inSolde:{
             type: Boolean,
             default: false
         },

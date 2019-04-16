@@ -1,0 +1,385 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "msic-font";
+  src:url("../fonts/msic-font.eot");
+  src:url("../fonts/msic-font.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/msic-font.woff") format("woff"),
+    url("../fonts/msic-font.ttf") format("truetype"),
+    url("../fonts/msic-font.svg#msic-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "msic-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ic-"]:before,
+[class*=" ic-"]:before {
+  font-family: "msic-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-shop-cart:before {
+  content: "\61";
+}
+.ic-shop-cart-in:before {
+  content: "\62";
+}
+.ic-shop-cart-out:before {
+  content: "\63";
+}
+.ic-star:before {
+  content: "\64";
+}
+.ic-star-half:before {
+  content: "\65";
+}
+.ic-star-half-o:before {
+  content: "\66";
+}
+.ic-star-o:before {
+  content: "\67";
+}
+.ic-shop-cart-o:before {
+  content: "\68";
+}
+.ic-android:before {
+  content: "\69";
+}
+.ic-apple:before {
+  content: "\6a";
+}
+.ic-angle-up:before {
+  content: "\6b";
+}
+.ic-angle-right:before {
+  content: "\6c";
+}
+.ic-angle-left:before {
+  content: "\6d";
+}
+.ic-angle-down:before {
+  content: "\6e";
+}
+.ic-bell:before {
+  content: "\6f";
+}
+.ic-bell-o:before {
+  content: "\70";
+}
+.ic-bell-slash-o:before {
+  content: "\71";
+}
+.ic-bell-slash:before {
+  content: "\72";
+}
+.ic-caret-right:before {
+  content: "\73";
+}
+.ic-caret-left:before {
+  content: "\74";
+}
+.ic-caret-down:before {
+  content: "\75";
+}
+.ic-caret-up:before {
+  content: "\76";
+}
+.ic-cc-visa:before {
+  content: "\77";
+}
+.ic-cc-stripe:before {
+  content: "\78";
+}
+.ic-cc-paypal:before {
+  content: "\79";
+}
+.ic-cc-mastercard:before {
+  content: "\7a";
+}
+.ic-cc-discover:before {
+  content: "\41";
+}
+.ic-circle:before {
+  content: "\42";
+}
+.ic-circle-o:before {
+  content: "\43";
+}
+.ic-cc-jcb:before {
+  content: "\44";
+}
+.ic-calendar:before {
+  content: "\45";
+}
+.ic-calendar-check-o:before {
+  content: "\46";
+}
+.ic-calendar-minus-o:before {
+  content: "\47";
+}
+.ic-calendar-o:before {
+  content: "\48";
+}
+.ic-calendar-plus-o:before {
+  content: "\49";
+}
+.ic-calendar-times-o:before {
+  content: "\4a";
+}
+.ic-camera:before {
+  content: "\4b";
+}
+.ic-desktop:before {
+  content: "\4c";
+}
+.ic-download:before {
+  content: "\4d";
+}
+.ic-database:before {
+  content: "\4e";
+}
+.ic-user:before {
+  content: "\4f";
+}
+.ic-male:before {
+  content: "\50";
+}
+.ic-female:before {
+  content: "\51";
+}
+.ic-male-female:before {
+  content: "\52";
+}
+.ic-heart-o:before {
+  content: "\53";
+}
+.ic-heart:before {
+  content: "\54";
+}
+.ic-thumbs-o-up:before {
+  content: "\55";
+}
+.ic-thumbs-up:before {
+  content: "\56";
+}
+.ic-like-love:before {
+  content: "\57";
+}
+.ic-gratipay:before {
+  content: "\58";
+}
+.ic-ruble:before {
+  content: "\59";
+}
+.ic-user-o:before {
+  content: "\5a";
+}
+.ic-dollar-symbol:before {
+  content: "\30";
+}
+.ic-menu-2x:before {
+  content: "\31";
+}
+.ic-delete-2x:before {
+  content: "\32";
+}
+.ic-trash:before {
+  content: "\33";
+}
+.ic-cancel-circled:before {
+  content: "\34";
+}
+.ic-x:before {
+  content: "\35";
+}
+.ic-locked:before {
+  content: "\36";
+}
+.ic-locked-3x:before {
+  content: "\37";
+}
+.ic-locked-2x:before {
+  content: "\38";
+}
+.ic-unlocked-3x:before {
+  content: "\39";
+}
+.ic-coin:before {
+  content: "\21";
+}
+.ic-euro:before {
+  content: "\22";
+}
+.ic-unlocked-2x:before {
+  content: "\23";
+}
+.ic-download-2x:before {
+  content: "\24";
+}
+.ic-menu:before {
+  content: "\25";
+}
+.ic-search-2x:before {
+  content: "\26";
+}
+.ic-menu-1:before {
+  content: "\25";
+}
+.ic-menu-3x:before {
+  content: "\27";
+}
+.ic-menu-button-of-three-horizontal-lines:before {
+  content: "\27";
+}
+.ic-edit-modify:before {
+  content: "\28";
+}
+.ic-bubble-comment:before {
+  content: "\29";
+}
+.ic-computer-imac:before {
+  content: "\2a";
+}
+.ic-comment:before {
+  content: "\2b";
+}
+.ic-bubble:before {
+  content: "\2c";
+}
+.ic-arrow-combo:before {
+  content: "\2d";
+}
+.ic-list:before {
+  content: "\2e";
+}
+.ic-th-list:before {
+  content: "\2f";
+}
+.ic-telephone:before {
+  content: "\3a";
+}
+.ic-phone:before {
+  content: "\3b";
+}
+.ic-location:before {
+  content: "\3c";
+}
+.ic-map-marker:before {
+  content: "\3d";
+}
+.ic-location-arrow:before {
+  content: "\3e";
+}
+.ic-globe:before {
+  content: "\3f";
+}
+.ic-map-pin:before {
+  content: "\40";
+}
+.ic-flag:before {
+  content: "\5b";
+}
+.ic-substract:before {
+  content: "\5d";
+}
+.ic-add:before {
+  content: "\5e";
+}
+.ic-hold:before {
+  content: "\5f";
+}
+.ic-minus:before {
+  content: "\60";
+}
+.ic-share:before {
+  content: "\7b";
+}
+.ic-menu-2:before {
+  content: "\7c";
+}
+.ic-menu-3:before {
+  content: "\7d";
+}
+.ic-menu-vertical:before {
+  content: "\7e";
+}
+.ic-cog:before {
+  content: "\5c";
+}
+.ic-file-pdf-o:before {
+  content: "\e000";
+}
+.ic-folder:before {
+  content: "\e002";
+}
+.ic-folder-o:before {
+  content: "\e003";
+}
+.ic-folder-open:before {
+  content: "\e004";
+}
+.ic-get-pocket:before {
+  content: "\e005";
+}
+.ic-folder-open-o:before {
+  content: "\e006";
+}
+.ic-file-image-o:before {
+  content: "\e007";
+}
+.ic-file-o:before {
+  content: "\e008";
+}
+.ic-file-text:before {
+  content: "\e009";
+}
+.ic-folder-1x:before {
+  content: "\e001";
+}
+.ic-xml-file:before {
+  content: "\e00a";
+}
+.ic-excel:before {
+  content: "\e00b";
+}
+.ic-word:before {
+  content: "\e00c";
+}
+.ic-pdf:before {
+  content: "\e00d";
+}
+.ic-pdf-file:before {
+  content: "\e00e";
+}
+.ic-folder-2x:before {
+  content: "\e00f";
+}
+.ic-folder-3x:before {
+  content: "\e010";
+}
+.ic-folder-open-2x:before {
+  content: "\e011";
+}
+.ic-folder-open-3x:before {
+  content: "\e012";
+}
