@@ -39,6 +39,7 @@ module.exports = {
     '~/assets/css/icons.css',
     '~/assets/css/colors.css',
     '~/assets/css/app.css',
+    '~/assets/css/responsive.css',
   ]
 }
 

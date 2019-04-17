@@ -13,8 +13,14 @@
                 </div>
                 <div class="x-navbar-nav ">
                     <a href="#" class="x-nav-item"><i class="ic-like-love"></i></a>
-                    <a href="#" class="x-nav-item"><i class="ic-shop-cart"></i></a>
+                    <a href="#" class="x-nav-item">
+                        <i class="ic-shop-cart"></i>
+                        <badge :content="1" />
+                    </a>
                     <a href="#" class="x-nav-item">Войти</a>
+                    <a href="#" class="x-nav-item x-btn-toggle">
+                        <i class="ic-menu-2x mr-15"></i>
+                    </a>
                 </div>
             </div>
         </div> 
@@ -22,15 +28,14 @@
         <div class="x-menu box-shadow is-light">
             <div class="x-container">
                 <div class="x-menu-nav">
-                    <nuxt-link to="/" class="x-menu-item" style="padding-left:0px;justify-content:flex-start;">
-                        <i class="ic-menu-2x mr-15"></i>Главная
-                    </nuxt-link>
+                    <nuxt-link to="/" class="x-menu-item" style="padding-left:0px;">Главная</nuxt-link>
                     <nuxt-link to="/catalog/smartphones" class="x-menu-item">Смартфоны</nuxt-link>
                     <nuxt-link to="/catalog/tablettes" class="x-menu-item">Планшеты</nuxt-link>
                     <nuxt-link to="/catalog/headphones" class="x-menu-item">Наушники</nuxt-link> 
                     <nuxt-link to="/catalog/accessoires" class="x-menu-item ">Аксессуары</nuxt-link>
                     <nuxt-link to="/catalog/gadgets" class="x-menu-item">Гаджеты</nuxt-link>
                 </div> 
+                <div class="x-separator"></div>
                 <div class="x-menu-nav">
                     <nuxt-link to="/orders" class="x-menu-item">Доставка</nuxt-link> 
                     <nuxt-link to="/contacts" class="x-menu-item">Контакты</nuxt-link>
@@ -39,6 +44,15 @@
         </div>
     </header>
 </template>
+
+<script>
+import Badge from '@/components/Badge'
+export default {
+    components: { Badge }
+}
+</script>
+
+
 <style>
 header{
     background: #fff;
@@ -96,6 +110,7 @@ header{
         display: flex;
   }
   header .x-navbar-nav .x-nav-item{
+        position: relative;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -104,11 +119,16 @@ header{
     color: #04c504;
     color: var(--main-color);
   }
-  
+  header .x-navbar-nav .x-nav-item .x-badge{
+    top: -5px;
+    left: calc(100% - 15px);
+  }
+  header .x-navbar-nav  .x-nav-item.x-btn-toggle{
+      display: none;
+  }
     /* menu */
   header .x-menu{
-        display: flex;
-        height: 45px;
+     display: flex
   }
   header .x-menu .x-container{
       display: flex;
@@ -128,21 +148,18 @@ header{
         transition: all .3s;
        /* background: var(--green) */
   }
+  header .x-menu .x-menu-item:first-child{
+    margin-right: 0;
+  }
   header .x-menu .x-menu-item:last-child{
     margin-right: 0;
   }
   header .x-menu .x-menu-item:hover{
       /* font-weight: 600; */
       /* text-decoration: underline; */
-      border-bottom: 1px solid  #04c504;
       border-bottom: 1px solid  var(--main-color);
   }
-  header .x-menu .x-menu-item.active{
-      /* font-weight: bold; */
-      /* color: var(--main-color) */
-       border-bottom: 2px solid  #04c504;
-       border-bottom: 2px solid  var(--main-color);
-  }
+
   header .x-menu .x-menu-item.active:hover{
     color: black;
   }
@@ -150,9 +167,59 @@ header{
     /* header  .x-menu .nuxt-link-active{
      border-bottom: 2px solid  var(--main-color);
   } */
+
   header .x-menu .nuxt-link-exact-active{
-    border-bottom: 2px solid  #04c504;
     border-bottom: 2px solid  var(--main-color);
   }
+@media screen and (min-width: 870px) {
+   header .x-menu{
+     display: flex;
+     height: 45px;
+  }
+}
+@media screen and (max-width: 870px) {
+     /* css */
+    header .x-navbar-nav  .x-nav-item.x-btn-toggle{
+        display: flex;
+    }
+    header {
+        position: relative;
+    }
+    header .x-menu{
+       position: absolute;
+       width: 200px;
+       overflow-y: auto;
+        top: 41;
+        right:20%;
+        box-shadow: 0px 1px 4px -2px #555;
+        z-index: 100;
+    }
+   header .x-menu .x-container{
+        display: flex;
+        flex-direction: column; 
+   }
+   header .x-menu .x-menu-nav{
+    display: flex;
+    flex-direction: column;
+   }
+   header .x-separator{
+       width: 100%;
+       border-bottom: 1px solid #ddd;
+       margin: 5px 0;
+   }
+  header .x-menu .nuxt-link-exact-active{
+    background:   #f9f9f9;
+    border-bottom: 0;
+  }
+  header .x-menu .x-menu-item:hover{
+      border-bottom: 0px;
+  }
+
+}
+@media screen and (max-width: 478px){
+    header .x-searchbox{
+        display: none;
+    }
+}
 
 </style>
