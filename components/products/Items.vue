@@ -1,6 +1,88 @@
 <template>
-    <div></div>
+<div class="x-card" >
+    <div class="x-ribbon" >
+        <a href="#" >
+            <i class="icon ic-heart-o" ></i>
+        </a>
+    </div> 
+    <div class="x-card-image" >
+        <img :src="thumb" alt="" width="79" height="159" >
+    </div> 
+    <div class="x-card-title" >
+        <a href="#" >{{ title }}</a>
+    </div> 
+    <div class="x-card-rate" >
+        <div class="x-rates" >
+            <a href="#" ><i class="icon ic-star" ></i> </a> 
+            <a href="#" ><i class="icon ic-star-o" ></i> </a> 
+            <a href="#" ><i class="icon ic-star-half" ></i></a> 
+            <a href="#" ><i class="icon ic-star-half-o" ></i></a>
+        </div> 
+        <div class="x-likes" >
+            <i class="fas fa-comment x-likes-item" ></i> 
+            <span class="x-likes-item" >{{ likes }}</span>
+        </div>
+    </div> 
+    <div class="x-card-footer" >
+        <div class="x-prices" >
+            <span class="x-sold" >{{ solde }}  {{ $store.state.settings.devise }}</span> 
+            <span class="x-price" >{{ price }} {{ $store.state.settings.devise }}</span>
+        </div> 
+        <div class="x-cart" >
+            <a href="#" @click="addToCart">
+                <i class="icon ic-shop-cart-in" ></i>
+            </a>
+        </div>
+    </div>
+</div>
 </template>
+
+<script>
+export default {
+     props: {
+        title:{
+            type: String,
+            default: ""
+        },
+        price:{
+            type: String,
+            default: ""
+        },
+        thumb:{
+            type: String,
+            default: ""
+        },
+        inSolde:{
+            type: Boolean,
+            default: false
+        },
+        ribbon:{
+            type: String,
+            default: ""
+        },
+        solde:{
+            type: String,
+            default: ""
+        },
+        likes: {
+            type: Number,
+            default: 0
+        },
+    },
+    methods: {
+      addToCart(){
+          var product = {
+              id: 1,
+              name: 'Iphone X',
+              price: '$ 1500'
+          }
+          this.$store.commit('products/addToCart', product)
+      }
+   }
+}
+</script>
+
+
 <style>
 .x-card{
     position: relative;

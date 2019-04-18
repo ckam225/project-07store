@@ -10,12 +10,11 @@
                 </div>
                 <h3 class="x-panel-title">Смартфоны</h3>
                 <div class="prods">
-                    <card v-for="(pdt,i) in products" :key="i"
+                    <item v-for="(pdt,i) in $store.state.products.smartphones" :key="i"
                      :title="pdt.title"
-                     :price="pdt.price"
-                     :inSolde="pdt.inSolde"
-                     :ribbon="pdt.ribbon"
                      :thumb="pdt.thumb"
+                     :solde="pdt.solde"
+                     :price="pdt.price"
                     />
                 </div>
             </div>
@@ -23,88 +22,13 @@
     </div>
 </template>
 <script>
-import Card from '@/components/products/Card'
+import Item from '@/components/products/Items'
 export default {
     head: {
         title: 'Смартфоны'
     },
-    components: { Card },
-    data(){
-        return{
-            products: [
-                {
-                  thumb: '/img/smartphones/01.png',
-                  price: '61 900 ₽',
-                  title: 'Смартфон Google Pixel 3 XL 128Gb Black (Черный)',
-                  inSolde: false,
-                  ribbon: ''
-                }, 
-                {
-                  thumb: '/img/smartphones/02.png',
-                  price: '61 900 ₽',
-                  title: 'Смартфон Google Pixel 3 XL 128Gb Black (Черный)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/03.png',
-                  price: '68 990 ₽',
-                  title: 'iPhone X 256GB как новый (серый космос)',
-                  inSolde: true,
-                  ribbon: 'New'
-                },
-                {
-                  thumb: '/img/smartphones/04.png',
-                  price: '63 990 ₽',
-                  title: 'Смартфон Apple iPhone X 64GB Silver (MQAD2RU/A)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/02.png',
-                  price: '61 900 ₽',
-                  title: 'Смартфон Google Pixel 3 XL 128Gb Black (Черный)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/03.png',
-                  price: '68 990 ₽',
-                  title: 'iPhone X 256GB как новый (серый космос)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/04.png',
-                  price: '63 990 ₽',
-                  title: 'Смартфон Apple iPhone X 64GB Silver (MQAD2RU/A)',
-                  inSolde: true,
-                  ribbon: 'Solde'
-                },
-                {
-                  thumb: '/img/smartphones/02.png',
-                  price: '61 900 ₽',
-                  title: 'Смартфон Google Pixel 3 XL 128Gb Black (Черный)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/03.png',
-                  price: '68 990 ₽',
-                  title: 'iPhone X 256GB как новый (серый космос)',
-                  inSolde: false,
-                  ribbon: ''
-                },
-                {
-                  thumb: '/img/smartphones/04.png',
-                  price: '63 990 ₽',
-                  title: 'Смартфон Apple iPhone X 64GB Silver (MQAD2RU/A)',
-                  inSolde: false,
-                  ribbon: ''
-                }
-            ]
-        }
-    }
+    components: { Item },
+
 }
 </script>
 
@@ -125,7 +49,7 @@ export default {
     flex-direction: column;
 }
 .x-content .x-col-2 .prods {
-    margin: 20px 0;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
 }
@@ -134,5 +58,9 @@ export default {
 }
 .x-content .x-panel-title {
     margin-left: 10px;
+}
+
+.prods > .x-card {
+    width: calc(25% - 10px);
 }
 </style>

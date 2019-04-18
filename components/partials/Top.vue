@@ -3,24 +3,30 @@
         <div class="x-navbar">
             <div class="x-container">
                 <div class="x-navbar-brand">
+                    <a href="#" class="x-nav-item x-btn-toggle" >
+                        <i class="ic-menu-2x mr-15"></i>
+                    </a>
                     <a href="/" class="brand-logo">
                         <img src="/img/logo.png" width="89.2" height="31" alt="">
                     </a> 
                     <div class="x-searchbox">
                         <input type="text"> 
-                        <a href="/#" class="x-btn-search"><i class="ic-search-2x"></i></a>
+                        <a href="#" class="x-btn-search" @click="addToCart"><i class="ic-search-2x"></i></a>
                     </div>
                 </div>
                 <div class="x-navbar-nav ">
-                    <a href="#" class="x-nav-item"><i class="ic-like-love"></i></a>
+                    <a href="#" class="x-nav-item">
+                        <i class="ic-like-love"></i>
+                        <bounce :color="bounce"  v-if="$store.state.products.favorites.length > 0" />
+                    </a>
                     <a href="#" class="x-nav-item">
                         <i class="ic-shop-cart"></i>
-                        <badge :content="1" />
+                        <badge :content="$store.state.products.cart.length" />
                     </a>
-                    <a href="#" class="x-nav-item">Войти</a>
-                    <a href="#" class="x-nav-item x-btn-toggle">
-                        <i class="ic-menu-2x mr-15"></i>
-                    </a>
+                    <a href="#" class="x-nav-item auth-icon" v-if="$store.state.auth.user ==null">Войти</a>       
+                    <a href="#" class="x-nav-item auth-icon" v-else >
+                        <i class="ic-user-o"></i>
+                    </a>       
                 </div>
             </div>
         </div> 
@@ -28,7 +34,7 @@
         <div class="x-menu box-shadow is-light">
             <div class="x-container">
                 <div class="x-menu-nav">
-                    <nuxt-link to="/" class="x-menu-item" style="padding-left:0px;">Главная</nuxt-link>
+                    <nuxt-link to="/" class="x-menu-item">Главная</nuxt-link>
                     <nuxt-link to="/catalog/smartphones" class="x-menu-item">Смартфоны</nuxt-link>
                     <nuxt-link to="/catalog/tablettes" class="x-menu-item">Планшеты</nuxt-link>
                     <nuxt-link to="/catalog/headphones" class="x-menu-item">Наушники</nuxt-link> 
@@ -47,8 +53,29 @@
 
 <script>
 import Badge from '@/components/Badge'
+import Bounce from '@/components/Bounce'
 export default {
-    components: { Badge }
+  components: { Badge, Bounce },
+  data(){
+      return{
+          bounce: "coral"
+      }
+  },
+  computed: {
+    counter () { return this.$store.state.counter }
+  },
+  methods: {
+      addToCart(){
+          var product = {
+              id: 1,
+              name: 'Iphone X',
+              price: '$ 1500'
+          }
+          this.$store.commit('products/addToCart', product)
+          this.$store.commit('products/addToFavorite', product)
+          this.$store.commit('auth/setUser', product)
+      }
+  }
 }
 </script>
 
@@ -56,11 +83,11 @@ export default {
 <style>
 header{
     background: #fff;
-  }
-  header  .brand-logo{
+}
+header  .brand-logo{
       display: flex;
-  }
-  header .x-navbar{
+}
+header .x-navbar{
         padding: 10px 0;
         display: flex;
         justify-content: space-between;
@@ -72,7 +99,6 @@ header{
   }
   header .x-navbar-brand{
       display: flex;
-      justify-content: space-between;
       align-items: center;
       min-width: 70%;
   }
@@ -92,13 +118,14 @@ header{
       width: calc(100% - 30px);
   }
   header .x-searchbox input:focus + a{
-     background: greenyellow;
+     background: var(--main-color);
+     color: #fff;
   }
   header .x-searchbox[focus-within]{
-      border-color: greenyellow;
+      border-color: var(--main-color);
   }
   header .x-searchbox:focus-within{
-      border-color: greenyellow;
+      border-color: var(--main-color);
   }
   header .x-btn-search{
       display: flex;
@@ -123,7 +150,11 @@ header{
     top: -5px;
     left: calc(100% - 15px);
   }
-  header .x-navbar-nav  .x-nav-item.x-btn-toggle{
+  header .x-navbar-nav .x-nav-item .x-bounce{
+     top: 9px;
+    right: 3px;
+  }
+  header  .x-nav-item.x-btn-toggle{
       display: none;
   }
     /* menu */
@@ -149,7 +180,7 @@ header{
        /* background: var(--green) */
   }
   header .x-menu .x-menu-item:first-child{
-    margin-right: 0;
+    margin-left: 0;
   }
   header .x-menu .x-menu-item:last-child{
     margin-right: 0;
@@ -167,7 +198,9 @@ header{
     /* header  .x-menu .nuxt-link-active{
      border-bottom: 2px solid  var(--main-color);
   } */
-
+  header .auth-icon{
+    margin-left: 20px;
+  }
   header .x-menu .nuxt-link-exact-active{
     border-bottom: 2px solid  var(--main-color);
   }
@@ -179,7 +212,7 @@ header{
 }
 @media screen and (max-width: 870px) {
      /* css */
-    header .x-navbar-nav  .x-nav-item.x-btn-toggle{
+    header .x-nav-item.x-btn-toggle{
         display: flex;
     }
     header {
@@ -190,11 +223,12 @@ header{
        width: 200px;
        overflow-y: auto;
         top: 41;
-        right:20%;
+        right:0;
         box-shadow: 0px 1px 4px -2px #555;
         z-index: 100;
     }
    header .x-menu .x-container{
+       width: 100%;
         display: flex;
         flex-direction: column; 
    }
@@ -202,6 +236,7 @@ header{
     display: flex;
     flex-direction: column;
    }
+   
    header .x-separator{
        width: 100%;
        border-bottom: 1px solid #ddd;
@@ -211,6 +246,10 @@ header{
     background:   #f9f9f9;
     border-bottom: 0;
   }
+  header .x-menu .x-menu-item, .x-menu-item:first-child{
+      padding-left: 10px;
+  }
+
   header .x-menu .x-menu-item:hover{
       border-bottom: 0px;
   }

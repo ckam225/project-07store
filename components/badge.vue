@@ -6,8 +6,8 @@ export default {
     name:'badge',
     props:{
         content:{
-            type: String,
-            default:''
+            type: Number,
+            default:0
         },
         bcolor:{
             type: String,

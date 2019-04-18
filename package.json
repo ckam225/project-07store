@@ -4,6 +4,12 @@
   "description": "Online shopping application",
   "author": "msic89 <claver.developper@gmail.com>",
   "private": true,
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1",
+      "port": "3333"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -13,6 +19,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

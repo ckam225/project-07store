@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- topbar -->
-    <top/>
+    <top />
     <!-- main -->
     <main>
        <nuxt/>
