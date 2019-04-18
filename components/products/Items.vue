@@ -1,7 +1,7 @@
 <template>
 <div class="x-card" >
     <div class="x-ribbon" >
-        <a href="#" >
+        <a @click="addToFavorite" >
             <i class="icon ic-heart-o" ></i>
         </a>
     </div> 
@@ -29,7 +29,7 @@
             <span class="x-price" >{{ price }} {{ $store.state.settings.devise }}</span>
         </div> 
         <div class="x-cart" >
-            <a href="#" @click="addToCart">
+            <a  @click="addToCart">
                 <i class="icon ic-shop-cart-in" ></i>
             </a>
         </div>
@@ -77,6 +77,14 @@ export default {
               price: '$ 1500'
           }
           this.$store.commit('products/addToCart', product)
+      },
+       addToFavorite(){
+          var product = {
+              id: 1,
+              name: 'Iphone X',
+              price: '$ 1500'
+          }
+          this.$store.commit('products/addToFavorite', product)
       }
    }
 }
@@ -158,6 +166,7 @@ export default {
     font-size: 18px;
 }
 .x-card-footer .x-cart a{
+    cursor: pointer;
     text-align: center;
    padding: 5px 10px;
    color: #fff;
@@ -180,6 +189,9 @@ export default {
 }
 .x-ribbon .icon{
     font-size: 25px;
+}
+.x-ribbon a{
+   cursor: pointer;
 }
 
 </style>

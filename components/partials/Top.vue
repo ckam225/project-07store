@@ -11,7 +11,7 @@
                     </a> 
                     <div class="x-searchbox">
                         <input type="text"> 
-                        <a href="#" class="x-btn-search" @click="addToCart"><i class="ic-search-2x"></i></a>
+                        <a href="#" class="x-btn-search" ><i class="ic-search-2x"></i></a>
                     </div>
                 </div>
                 <div class="x-navbar-nav ">
@@ -65,16 +65,7 @@ export default {
     counter () { return this.$store.state.counter }
   },
   methods: {
-      addToCart(){
-          var product = {
-              id: 1,
-              name: 'Iphone X',
-              price: '$ 1500'
-          }
-          this.$store.commit('products/addToCart', product)
-          this.$store.commit('products/addToFavorite', product)
-          this.$store.commit('auth/setUser', product)
-      }
+     
   }
 }
 </script>
