@@ -1,5 +1,5 @@
 <template>
-    <div class="x-container">
+    <div class="x-container mh">
         <div class="x-column">
 
             <div class="x-col-1">
@@ -32,6 +32,7 @@
 </template>
 <style scoped>
 .x-column{
+    padding-top: 30px;
     display:flex;
     flex-direction: column;
 }

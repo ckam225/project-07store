@@ -15,18 +15,22 @@
                     </div>
                 </div>
                 <div class="x-navbar-nav ">
-                    <a href="#" class="x-nav-item">
+                    <nuxt-link to="catalog/favorites" class="x-nav-item">
                         <i class="ic-like-love"></i>
                         <bounce :color="bounce"  v-if="$store.state.products.favorites.length > 0" />
-                    </a>
-                    <a href="#" class="x-nav-item">
+                    </nuxt-link>
+                    <nuxt-link to="catalog/cart" class="x-nav-item">
                         <i class="ic-shop-cart"></i>
                         <badge :content="$store.state.products.cart.length" />
-                    </a>
-                    <a href="#" class="x-nav-item auth-icon" v-if="$store.state.auth.user ==null">Войти</a>       
+                    </nuxt-link>
+                    <a @click="activeLogin"  class="x-nav-item auth-icon " id="auth-btn" v-if="$store.state.auth.user ==null">Войти
+                       
+                    </a>       
                     <a href="#" class="x-nav-item auth-icon" v-else >
                         <i class="ic-user-o"></i>
-                    </a>       
+                    </a>  
+                     
+                    <login v-show="showLogin"/>  
                 </div>
             </div>
         </div> 
@@ -52,26 +56,32 @@
 </template>
 
 <script>
-import Badge from '@/components/Badge'
-import Bounce from '@/components/Bounce'
+import Badge from '@/components/widgets/Badge'
+import Bounce from '@/components/widgets/Bounce'
+import Login from '@/components/widgets/Login'
 export default {
-  components: { Badge, Bounce },
+  components: { Badge, Bounce, Login },
   data(){
       return{
-          bounce: "coral"
+          bounce: "coral", 
+          showLogin: false
       }
   },
   computed: {
     counter () { return this.$store.state.counter }
   },
   methods: {
-     
+     activeLogin(){
+         this.showLogin = !this.showLogin
+     }
   }
 }
 </script>
 
 
 <style>
+
+
 header{
     background: #fff;
 }
@@ -79,11 +89,11 @@ header  .brand-logo{
       display: flex;
 }
 header .x-navbar{
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #eee;
-  }
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
   header .x-navbar .x-container{
       display: flex;
       justify-content: space-between;
@@ -191,10 +201,16 @@ header .x-navbar{
   } */
   header .auth-icon{
     margin-left: 20px;
+    position: relative;
+    cursor: pointer;
   }
+
   header .x-menu .nuxt-link-exact-active{
     border-bottom: 2px solid  var(--main-color);
   }
+  /* header #auth-btn:hover .login{
+      display: flex;
+  } */
 @media screen and (min-width: 870px) {
    header .x-menu{
      display: flex;
@@ -214,7 +230,7 @@ header .x-navbar{
        width: 200px;
        overflow-y: auto;
         top: 41;
-        right:0;
+        left:0;
         box-shadow: 0px 1px 4px -2px #555;
         z-index: 100;
     }

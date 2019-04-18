@@ -1,5 +1,5 @@
 <template>
-    <div class="x-container">
+    <div class="x-container mh">
         <div class="x-content">
             <div class="x-col-1"></div>
             <div class="x-col-2">

@@ -1,3 +1,3 @@
 <template>
-    <div class="x-container">orders</div>
+    <div class="x-container mh">orders</div>
 </template>

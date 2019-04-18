@@ -1,5 +1,5 @@
 <template>
-  <div class="x-container">
+  <div class="x-container mh">
     <div class="x-navigator">
       <a href="/" class="nuxt-link-exact-active nuxt-link-active">Главная</a> 
       <span class="separator">&gt;</span> <a href="/admin">Каталог</a>

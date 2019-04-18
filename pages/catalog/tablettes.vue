@@ -1,3 +1,3 @@
 <template>
-    <div class="x-container">tablettes</div>
+    <div class="x-container mh">tablettes</div>
 </template>

@@ -1,3 +1,3 @@
 <template>
-    <div class="x-container">headphones</div>
+    <div class="x-container mh">headphones</div>
 </template>

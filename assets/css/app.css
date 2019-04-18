@@ -21,8 +21,31 @@ a{
       color: inherit;
       text-decoration: none;
   }
-  
-
+.align-parent-center{
+  position: absolute;
+  top: 50%;
+ -webkit-transform: translateY(-50%);
+ -ms-transform: translateY(-50%);
+ transform: translateY(-50%);
+ left: 50%;
+ -webkit-transform: translateX(-50%);
+ -ms-transform: translateX(-50%);
+ transform: translateX(-50%);
+}  
+.vertical-align {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.horizontal-align {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 .sticky {
     position: fixed;
     top: 0;
@@ -124,7 +147,9 @@ a{
  margin-right: 10px;
 }
   
-
+.mh{
+  min-height: 100vh
+}
 .x-navigator{
   display: flex;
   padding: 10px 10px;
@@ -403,3 +428,221 @@ a{
 .page-enter, .page-leave-active {
   opacity: 0;
 }
+
+
+
+/* TABS*/
+.tabs {
+	display: flex;
+	flex-wrap: wrap; 
+}
+.tabs label {
+	order: 1; 
+	display: block;
+	padding: 5px 16px;
+	margin-right: 0.2rem;
+	cursor: pointer;
+  transition: background ease 0.2s;
+}
+.tabs .tab {
+  order: 99; 
+  flex-grow: 1;
+	width: 100%;
+	display: none;
+  padding: 1rem;
+  background: #fff;
+  border-top: 1px solid #CCC;
+}
+.tabs input[type="radio"] {
+	display: none;
+}
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+  border-bottom: 2px solid var(--main-color);
+  font-weight: bold;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+	display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+    background: var(--main-color);
+    color: #fff;
+    padding: 10PX;
+  }
+  .tabs input[type="radio"]:checked + label{
+    border: none;
+  }
+  .tabs .tab{
+    border: 0;
+  }
+}
+
+/* END TABS */
+
+/* -------------SELECT ----------------------------*/
+.form-select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-select select {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0;
+  border-radius: var(--form-item-radius);
+  background: transparent;
+  border: 1px solid var(--color-input-border);
+  color: var(--color-input);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-select select::-ms-expand {
+  display: none;
+}
+
+.form-select select:hover,
+.form-select select:focus {
+  color: #000;
+  border: 1px solid var(--color-primary);
+}
+
+.form-select select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.select__arrow {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: var(--color-input-border) transparent transparent transparent;
+}
+
+.form-select select:hover ~ .select__arrow,
+.form-select select:focus ~ .select__arrow {
+  border-top-color: var(--color-primary);
+}
+
+.form-select select:disabled ~ .select__arrow {
+  border-top-color: var(--color-input-border);
+}
+/* --------------END SELECT ------------------------*/
+/* Radio and checkbox */
+/*radio */
+.form-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #f1f1f1;
+  color: #666;
+  top: 4px;
+  height: 20px;
+  width: 20px;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-right: 7px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-radio:checked::before {
+  position: absolute;
+  font: 13px/1 "Open Sans", sans-serif;
+  left: 7px;
+  top: 2px;
+  content: "⅃";
+  transform: rotate(40deg);
+}
+
+.form-radio:hover {
+  background-color: #f7f7f7;
+}
+
+.form-radio:checked {
+  background-color: #92f70f;
+  color: #fff;
+}
+
+.group-radio {
+  margin-left: -5px;
+}
+
+.group-radio label {
+  font: 300 16px/1.7 "Open Sans", sans-serif;
+  color: #666;
+  cursor: pointer;
+}
+
+/* checkbox form */
+.form-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #f1f1f1;
+  color: #666;
+  top: 8px;
+  height: 20px;
+  width: 20px;
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-right: 7px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-checkbox:checked::before {
+  position: absolute;
+  font: 13px/1 "Open Sans", sans-serif;
+  left: 7px;
+  top: 3px;
+  content: "⅃";
+  transform: rotate(40deg);
+}
+
+.form-checkbox:hover {
+  background-color: #f7f7f7;
+}
+
+.form-checkbox:checked {
+  background-color: #92f70f;
+  color: #fff;
+}
+
+.group-checkbox {
+  margin-left: -5px;
+}
+
+.group-checkbox label {
+  font: 300 16px/1.7 "Open Sans", sans-serif;
+  color: #666;
+  cursor: pointer;
+}
+
+/* */

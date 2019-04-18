@@ -1,3 +1,3 @@
 <template>
-    <div class="x-container">accessoires</div>
+    <div class="x-container mh">accessoires</div>
 </template>
