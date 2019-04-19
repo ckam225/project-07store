@@ -1,0 +1,15 @@
+{
+  "menu":{
+    "home": "Главная",
+    "smartphones": "Смартфоны",
+    "tablettes": "Планшеты",
+    "headphones": "Наушники",
+    "accessoires": "Аксессуары",
+    "gadgets": "Гаджеты",
+    "delivery": "Доставка",
+    "contacts": "Контакты"
+  },
+  "links":{
+    "login": "Войти"
+  }
+}

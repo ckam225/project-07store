@@ -1,20 +1,25 @@
-// import Vuex from 'vuex'
-
-// const createStore = () => {
-//   return new Vuex.Store({
-//     state: {
-//         products: [],
-//         counter: 0
-//     },
-//     mutations: {
-//         add (state, product) {
-//             state.products.push(product)
-//           },
-//           remove (state, { product }) {
-//             state.products.splice(state.products.indexOf(product), 1)
-//           },
+// export const state = () => ({
+//     locales: [
+//       {
+//         code: 'fr',
+//         name: 'FR'
+//       },
+//       {
+//         code: 'en',
+//         name: 'EN'
+//       },
+//       {
+//         code: 'ru',
+//         name: 'RU'
+//       }
+//     ],
+//     locale: 'en'
+//   });
+  
+//   export const mutations = {
+//     SET_LANG(state, locale) {
+//       if (state.locales.find(el => el.code === locale)) {
+//         state.locale = locale
+//       }
 //     }
-//   })
-// }
-
-// export default createStore
+//   };

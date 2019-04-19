@@ -34,8 +34,13 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['vue-i18n'],
   },
+  router: {
+    middleware: 'i18n'
+  },
+  plugins: ['~/plugins/i18n.js'],
   css: [
     '~/assets/css/icons.css',
     '~/assets/css/colors.css',

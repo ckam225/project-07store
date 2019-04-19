@@ -102,7 +102,12 @@ a{
     color: #fff;
     background-color: #35495e;
 }
-  
+  .link-btn{
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+  }
 .sw15{
   width: 15px;
 }

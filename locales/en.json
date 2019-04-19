@@ -1,0 +1,15 @@
+{
+   "menu":{
+     "home": "Home",
+     "smartphones": "Smartphones",
+     "tablettes": "Tablets",
+     "headphones": "Headphones",
+     "accessoires": "Accessories",
+     "gadgets": "Gadgets",
+     "delivery": "Delivery",
+     "contacts": "Contacts"
+   },
+   "links":{
+     "login": "Signin"
+   }
+}

@@ -15,22 +15,26 @@
                     </div>
                 </div>
                 <div class="x-navbar-nav ">
+                     <button href="#" class="link-btn" @click="showLocale =! showLocale">
+                        {{ locale }}<i class="ic-caret-down"></i>
+                       <lang  v-show="showLocale"/>
+                     </button>    
                     <nuxt-link to="catalog/favorites" class="x-nav-item">
                         <i class="ic-like-love"></i>
                         <bounce :color="bounce"  v-if="$store.state.products.favorites.length > 0" />
                     </nuxt-link>
                     <nuxt-link to="catalog/cart" class="x-nav-item">
                         <i class="ic-shop-cart"></i>
-                        <badge :content="$store.state.products.cart.length" />
+                        <badge :content="$store.state.products.cart.length" v-if="$store.state.products.cart.length > 0"/>
                     </nuxt-link>
-                    <a @click="activeLogin"  class="x-nav-item auth-icon " id="auth-btn" v-if="$store.state.auth.user ==null">Войти
-                       
+                    <a @click="activeLogin"  class="x-nav-item auth-icon " id="auth-btn" v-if="$store.state.auth.user ==null">
+                     {{ $t('links.login') }}  
                     </a>       
                     <a href="#" class="x-nav-item auth-icon" v-else >
                         <i class="ic-user-o"></i>
-                    </a>  
-                     
+                    </a>                  
                     <login v-show="showLogin"/>  
+                    
                 </div>
             </div>
         </div> 
@@ -38,17 +42,17 @@
         <div class="x-menu box-shadow is-light">
             <div class="x-container">
                 <div class="x-menu-nav">
-                    <nuxt-link to="/" class="x-menu-item">Главная</nuxt-link>
-                    <nuxt-link to="/catalog/smartphones" class="x-menu-item">Смартфоны</nuxt-link>
-                    <nuxt-link to="/catalog/tablettes" class="x-menu-item">Планшеты</nuxt-link>
-                    <nuxt-link to="/catalog/headphones" class="x-menu-item">Наушники</nuxt-link> 
-                    <nuxt-link to="/catalog/accessoires" class="x-menu-item ">Аксессуары</nuxt-link>
-                    <nuxt-link to="/catalog/gadgets" class="x-menu-item">Гаджеты</nuxt-link>
+                    <nuxt-link to="/" class="x-menu-item">{{ $t('menu.home') }}</nuxt-link>
+                    <nuxt-link to="/catalog/smartphones" class="x-menu-item">{{ $t('menu.smartphones') }}</nuxt-link>
+                    <nuxt-link to="/catalog/tablettes" class="x-menu-item">{{ $t('menu.tablettes') }}</nuxt-link>
+                    <nuxt-link to="/catalog/headphones" class="x-menu-item">{{ $t('menu.headphones') }}</nuxt-link> 
+                    <nuxt-link to="/catalog/accessoires" class="x-menu-item ">{{ $t('menu.accessoires') }}</nuxt-link>
+                    <nuxt-link to="/catalog/gadgets" class="x-menu-item">{{ $t('menu.gadgets') }}</nuxt-link>
                 </div> 
                 <div class="x-separator"></div>
                 <div class="x-menu-nav">
-                    <nuxt-link to="/orders" class="x-menu-item">Доставка</nuxt-link> 
-                    <nuxt-link to="/contacts" class="x-menu-item">Контакты</nuxt-link>
+                    <nuxt-link to="/delivery" class="x-menu-item">{{ $t('menu.delivery') }}</nuxt-link> 
+                    <nuxt-link to="/contacts" class="x-menu-item">{{ $t('menu.contacts') }}</nuxt-link>
                 </div>
             </div>
         </div>
@@ -59,22 +63,27 @@
 import Badge from '@/components/widgets/Badge'
 import Bounce from '@/components/widgets/Bounce'
 import Login from '@/components/widgets/Login'
+import Lang from '@/components/widgets/Lang'
 export default {
-  components: { Badge, Bounce, Login },
+  components: { Badge, Bounce, Login, Lang },
   data(){
       return{
           bounce: "coral", 
-          showLogin: false
+          showLogin: false,
+          showLocale: false
       }
   },
   computed: {
-    counter () { return this.$store.state.counter }
+    // counter () { return this.$store.state.counter },
+    locale() { return this.$store.state.settings.locale.toUpperCase()  }
   },
   methods: {
      activeLogin(){
          this.showLogin = !this.showLogin
-     }
+     },
+    
   }
+ 
 }
 </script>
 
@@ -84,6 +93,12 @@ export default {
 
 header{
     background: #fff;
+}
+header .link-btn:hover{
+color: var(--main-color);
+}
+header .link-btn:hover > div{
+color: #444;
 }
 header  .brand-logo{
       display: flex;
@@ -107,12 +122,13 @@ header .x-navbar{
       margin-left: 50px;
       width: calc(100% - 100px);
       height: 40px;
-      border: 2px solid #ccc;
-      border-radius: 0.25em;
+      border: 1px solid #ccc;
+      border-radius: 25em;
       display: flex;
       justify-content: space-between;
   }
   header .x-searchbox input{
+      margin-left: 18px;
       outline: none;
       border: 0;
       padding: 0 10px;
@@ -131,8 +147,11 @@ header .x-navbar{
   header .x-btn-search{
       display: flex;
       align-items: center;
-      background: #ccc;
+      background: transparent;
+      color: var(--main-color);
       padding: 0px 15px;
+      border-radius: 0 25em 25em 0 ;
+      border: 0
   }
   header  .x-navbar-nav{
         display: flex;

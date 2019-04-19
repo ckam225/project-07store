@@ -1,0 +1,24 @@
+
+{
+  "menu":{
+    "home": "Accueil",
+    "smartphones": "Smartphones",
+    "tablettes": "Planchettes",
+    "headphones": "Écouteurs",
+    "accessoires": "Accessoires",
+    "gadgets": "Gadgets",
+    "delivery": "Livraison",
+    "contacts": "Contacts"
+  },
+  "links":{
+    "login": "Signin"
+  }
+}
+
+
+
+
+
+
+
+
