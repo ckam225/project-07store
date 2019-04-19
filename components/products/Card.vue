@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card"  @click="goToDetail(id)">
         <div class="ribbon ribbon-top-right " v-if="inSolde">
             <span>{{ ribbon }}</span>
         </div> 
@@ -17,6 +17,9 @@
 <script>
 export default {
     props: {
+        id: {
+            type: Number,
+        },
         title:{
             type: String,
             default: ""
@@ -36,6 +39,12 @@ export default {
         ribbon:{
             type: String,
             default: ""
+        }
+    },
+    methods: {
+         goToDetail(pid){
+          this.$router.push(`/catalog/${pid}`);
+          //redirect(301, `/v/${params.title}/${params.id}`)
         }
     }
 }

@@ -15,6 +15,7 @@
                      :thumb="pdt.thumb"
                      :solde="pdt.solde"
                      :price="pdt.price"
+                     :id="i+1"
                     />
                 </div>
             </div>

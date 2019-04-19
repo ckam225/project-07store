@@ -6,12 +6,13 @@
     </div> 
     <h2></h2> 
     <div class="products">
-<card v-for="(pdt,i) in $store.state.products.smartphones" :key="i"
+<card v-for="(pdt,i) in $store.state.products.smartphones" :key="i" 
                      :title="pdt.title"
                      :price="pdt.price"
                      :inSolde="pdt.inSolde"
                      :ribbon="pdt.ribbon"
                      :thumb="pdt.thumb"
+                     :id="i+1"
                     />
     </div>
   </div>
