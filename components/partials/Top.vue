@@ -6,9 +6,9 @@
                     <a href="#" class="x-nav-item x-btn-toggle" >
                         <i class="ic-menu-2x mr-15"></i>
                     </a>
-                    <a href="/" class="brand-logo">
-                        <img src="/img/logo.png" width="89.2" height="31" alt="">
-                    </a> 
+                    <!-- logo -->
+                    <logo :fontSize="logoSize" />
+
                     <div class="x-searchbox">
                         <input type="text"> 
                         <a href="#" class="x-btn-search" ><i class="ic-search-2x"></i></a>
@@ -19,11 +19,11 @@
                         {{ locale }}<i class="ic-caret-down"></i>
                        <lang  v-show="showLocale"/>
                      </button>    
-                    <nuxt-link to="catalog/favorites" class="x-nav-item">
+                    <nuxt-link to="/catalog/favorites" class="x-nav-item">
                         <i class="ic-like-love"></i>
                         <bounce :color="bounce"  v-if="$store.state.products.favorites.length > 0" />
                     </nuxt-link>
-                    <nuxt-link to="catalog/cart" class="x-nav-item">
+                    <nuxt-link to="/catalog/cart" class="x-nav-item">
                         <i class="ic-shop-cart"></i>
                         <badge :content="$store.state.products.cart.length" v-if="$store.state.products.cart.length > 0"/>
                     </nuxt-link>
@@ -39,7 +39,7 @@
             </div>
         </div> 
         
-        <div class="x-menu box-shadow is-light">
+        <div class="x-menu box-shadow-br is-light">
             <div class="x-container">
                 <div class="x-menu-nav">
                     <nuxt-link to="/" class="x-menu-item">{{ $t('menu.home') }}</nuxt-link>
@@ -64,18 +64,20 @@ import Badge from '@/components/widgets/Badge'
 import Bounce from '@/components/widgets/Bounce'
 import Login from '@/components/widgets/Login'
 import Lang from '@/components/widgets/Lang'
+import Logo from '@/components/partials/Logo'
 export default {
-  components: { Badge, Bounce, Login, Lang },
+  components: { Badge, Bounce, Login, Lang, Logo },
   data(){
       return{
           bounce: "coral", 
           showLogin: false,
-          showLocale: false
+          showLocale: false,
+          logoSize: "18px"
       }
   },
   computed: {
     // counter () { return this.$store.state.counter },
-    locale() { return this.$store.state.settings.locale.toUpperCase()  }
+    locale() { return this.$store.state.app.locale.toUpperCase()  }
   },
   methods: {
      activeLogin(){

@@ -6,14 +6,14 @@
     </div> 
     <h2></h2> 
     <div class="products">
-<card v-for="(pdt,i) in $store.state.products.smartphones" :key="i" 
-                     :title="pdt.title"
-                     :price="pdt.price"
-                     :inSolde="pdt.inSolde"
-                     :ribbon="pdt.ribbon"
-                     :thumb="pdt.thumb"
-                     :id="i+1"
-                    />
+      <card v-for="(pdt,i) in $store.state.products.smartphones" :key="i" 
+        :title="pdt.title"
+        :price="pdt.price"
+        :inSolde="pdt.inSolde"
+        :ribbon="pdt.ribbon"
+        :thumb="pdt.thumb"
+        :id="i+1"
+      />
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
 import Card from '@/components/products/Card'
 export default {
   head:{
-    title: '07shopping'
+    title: '07Store'
   },
   components: {
     Card

@@ -59,9 +59,20 @@ a{
   
 
 .box-shadow {
-    box-shadow: 0 1px 4px -2px #555;
+  -moz-box-shadow: 0 1px 4px 0px #555;
+  -webkit-box-shadow: 0 1px 4px 0px #555;
+    box-shadow: 0 1px 4px 0px #555;
+}
+  .box-shadow-br {
+    -moz-box-shadow: 0 1px 4px -2px #555;
+    -webkit-box-shadow: 0 1px 4px -2px #555;
+      box-shadow: 0 1px 4px -2px #555;
   }
-  
+  .shadow {
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+  }
 
 /* containers */
   
@@ -81,6 +92,17 @@ a{
     text-decoration: none;
     padding: 10px 30px;
     background: inherit;
+    transition: all .3s;
+}
+.btn.btn-form{
+  background: var(--main-color);
+  color: #fff;
+  margin-top: 30px;
+}
+.btn.btn-form:hover{
+  background: var(--main-color);
+  color: #fff;
+  opacity: 0.8;
 }
 .btn-green {
     border: 1px solid var(--main-color);
@@ -651,3 +673,4 @@ a{
 }
 
 /* */
+

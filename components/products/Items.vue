@@ -9,7 +9,7 @@
         <img :src="thumb" alt="" width="79" height="159" >
     </div> 
     <div class="x-card-title" >
-        <a href="#" >{{ title }}</a>
+        <nuxt-link :to="{ path: '/catalog/'+id}" >{{ title }}</nuxt-link>
     </div> 
     <div class="x-card-rate" >
         <div class="x-rates" >
@@ -25,8 +25,8 @@
     </div> 
     <div class="x-card-footer" >
         <div class="x-prices" >
-            <span class="x-sold" >{{ solde }}  {{ $store.state.settings.devise }}</span> 
-            <span class="x-price" >{{ price }} {{ $store.state.settings.devise }}</span>
+            <span class="x-sold" >{{ solde }}  {{ $store.state.app.DEVISE }}</span> 
+            <span class="x-price" >{{ price }} {{ $store.state.app.DEVISE }}</span>
         </div> 
         <div class="x-cart" >
             <a  @click="addToCart">
@@ -40,6 +40,9 @@
 <script>
 export default {
      props: {
+        id: {
+            type: Number,
+        },
         title:{
             type: String,
             default: ""

@@ -1,10 +1,14 @@
 export const state = () => ({
-    user: null
+    user: null,
+    AUTH_FORM: false
 })
 
 export const mutations ={
-    setAuthUser(state, playload){
-        state.user = playload
+    setAuthUser(state, e){
+        state.user = e
+    },
+    SHOW_AUTH_FORM(state, e) {
+     state.AUTH_FORM = e
     }
 }
 

@@ -24,8 +24,8 @@ export default {
       }
     },
      computed: {
-      locales() { return this.$store.state.settings.locales },
-      locale() { return this.$store.state.settings.locale }
+      locales() { return this.$store.state.app.locales },
+      locale() { return this.$store.state.app.locale }
     },
     methods: {
       switchLanguage (localeCode) {

@@ -3,8 +3,11 @@
         <div class="x-content-fluid">
             <div class="col col-1"></div>
             <div class="col col-2"></div>
-            <div class="col col-3"></div>
+            <div class="col col-3">
+                <button @click="showAuthForm">SHOW</button>
+            </div>
         </div>
+       
     </div>
 </template>
 <script>
@@ -13,6 +16,12 @@ export default {
     // Doit être un nombre
     return /^\d+$/.test(params.id)
   },
+  components: {  },
+  methods:{
+        showAuthForm(){
+            this.$store.commit('auth/SHOW_AUTH_FORM', true)
+        }
+  }
 }
 </script>
 <style>
@@ -34,7 +43,7 @@ export default {
 .x-content-fluid .col-2{
     height: 500px;
     width: 520px;
-    background: green;
+    background: white;
 }
 .x-content-fluid .col-3{
     width: calc(100% - 640px);

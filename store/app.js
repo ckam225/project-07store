@@ -1,5 +1,6 @@
 export const state = () => ({
-    devise: '₽',
+    APP_NAME: '07Store',
+    DEVISE: '₽',
     locale: 'en',
     locales: [
         {
@@ -21,8 +22,8 @@ export const state = () => ({
 })
 
 export const mutations ={
-    changeDevise(state, value){
-        state.devise= value
+    SET_DEVISE(state, value){
+        state.DEVISE= value
     },
     SET_LANG(state, locale) {
         if (state.locales.find(el => el.code === locale)) {

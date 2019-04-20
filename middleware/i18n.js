@@ -22,8 +22,8 @@ export default function ({ isHMR, app, store, route, params, req, error, redirec
           locale = req.headers['accept-language'].split(',')[0].toLocaleLowerCase().substring(0, 2);
         }
   
-        store.commit('settings/SET_LANG', locale);
-        app.i18n.locale = store.state.settings.locale;
+        store.commit('app/SET_LANG', locale);
+        app.i18n.locale = store.state.app.locale;
       }
     }
   };

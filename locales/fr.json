@@ -12,6 +12,9 @@
   },
   "links":{
     "login": "Signin"
+  },
+  "app":{
+    "name":"07.Store" 
   }
 }
 

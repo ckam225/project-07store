@@ -11,5 +11,8 @@
   },
   "links":{
     "login": "Войти"
+  },
+  "app":{
+    "name":"07.Store" 
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <form class="login" @submit.prevent="signIn">
         <div class="form">
-            <h3 class="form-title">Welcome to 07shopp</h3>
+            <h3 class="form-title">Welcome to {{ $store.state.app.APP_NAME }}</h3>
             <label for="email">Email или ID пользователя:</label>
             <input type="text" name="email"  class="textbox" placeholder="Ваш адрес эл. почты или ID пользователя" required>
             <div class="double-label">
