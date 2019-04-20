@@ -1,6 +1,6 @@
 export default function({ store, redirect }) {
     if (store.state.auth.user == null) {
-      alert('not logged');
+      store.commit('auth/SHOW_AUTH_FORM', true);
       return redirect("/");
     }
 }
