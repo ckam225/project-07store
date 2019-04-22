@@ -1,8 +1,10 @@
 <template>
     <div class="card"  @click="goToDetail(id)">
-        <div class="ribbon ribbon-top-right " v-if="inSolde">
+        <!-- <div class="ribbon ribbon-top-right ">
             <span>{{ ribbon }}</span>
-        </div> 
+        </div>  -->
+        <ribbon :caption="ribbon"   v-if="inSolde"/>
+
         <div class="card-thumb">
             <img :src="thumb" alt="">
         </div> 
@@ -15,7 +17,9 @@
     </div>
 </template>
 <script>
+import Ribbon from '@/components/widgets/Ribbon'
 export default {
+    components: { Ribbon },
     props: {
         id: {
             type: Number,
@@ -39,6 +43,11 @@ export default {
         ribbon:{
             type: String,
             default: ""
+        }
+    },
+    data(){
+        return{
+            ribbonBg: '#04c504'
         }
     },
     methods: {

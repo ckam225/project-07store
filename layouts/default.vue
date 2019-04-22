@@ -16,7 +16,7 @@
 <script>
 import Top from '@/components/partials/Top'
 import Bottom from '@/components/partials/Bottom'
-import Account from '@/components/partials/Account'
+import Account from '@/components/widgets/Account'
 
 export default {
   components: { Top, Bottom, Account }

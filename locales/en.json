@@ -7,6 +7,7 @@
      "accessoires": "Accessories",
      "gadgets": "Gadgets",
      "delivery": "Delivery",
+     "guarantee": "Guarantees",
      "contacts": "Contacts"
    },
    "links":{
@@ -14,5 +15,23 @@
    },
    "app":{
      "name":"07.Store" 
+   },
+   "product": {
+     "price": "Price",
+     "price_reduced": "Reduced price",
+     "color": "Color",
+     "quantity": "Quantity",
+     "size": "Size",
+     "orders": "orders"
+   },
+   "actions": {
+     "buy": "Buy",
+     "buyNow": "Buy now",
+     "addToCart": "Add to cart"
+   },
+   "messages": {
+     "notFound": "Page not found",
+     "errorOccurred":"An error has occurred"
    }
+   
 }

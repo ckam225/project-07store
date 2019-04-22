@@ -45,7 +45,6 @@
 </template>
 <style>
   footer{
-      margin-top: 20px;
       background: #2b2b33;
       color: #999;
   }

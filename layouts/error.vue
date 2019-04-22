@@ -1,9 +1,9 @@
 <template>
   <div class="error">
     <h1 class="error-404">404</h1>
-    <h1 v-if="error.statusCode === 404">Page non trouvée</h1>
-    <h1 v-else>Une erreur s'est produite</h1>
-    <nuxt-link class="btn-44" to="/">Accueil</nuxt-link>
+    <h1 v-if="error.statusCode === 404"> {{ $t('messages.notFound') }}</h1>
+    <h1 v-else>{{ $t('messages.errorOccurred') }}</h1>
+    <nuxt-link class="btn-44" to="/">{{ $t('menu.home') }}</nuxt-link>
   </div>
 </template>
 

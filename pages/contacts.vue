@@ -32,12 +32,14 @@
 </template>
 <style scoped>
 .x-column{
-    padding-top: 30px;
     display:flex;
     flex-direction: column;
+   
 }
-.x-column .x-col-2{
-    padding:0 20px;
+.x-column .x-col-1{
+    padding:20px 20px;
+     margin: 20px 0;
+    background: #fff;
 }
 
 </style>

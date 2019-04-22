@@ -1,26 +1,25 @@
 <template>
     <div class="x-container mh">
 
-        <div class="x-content-fluid">
+        <div class="x-content-fluid" >
             <!-- images assets products -->
             <div class="col col-1">
                 <div class="col-img-list">
-                    <a href="#" class="img-item"><img src="/img/pc/5.jpg" alt=""></a>
-                    <a href="#" class="img-item"><img src="/img/pc/6.jpg" alt=""></a>
-                    <a href="#" class="img-item"><img src="/img/pc/7.jpg" alt=""></a>
-                    <a href="#" class="img-item"><img src="/img/pc/8.jpg" alt=""></a>
+                    <a href="#" class="img-item" v-for="(item,i) in product.images" :key="i">
+                        <img :src="item" alt="" >
+                    </a>
                 </div>
                 <div class="col-img">
-                    <img src="/img/smartphones/model.jpg" alt="">
+                    <img :src="product.image" alt="">
                 </div>
             </div>
 
-             <div class="w-separator"></div>
-             
+             <!-- <div class="w-separator"></div> -->
+             <hr>
             <!-- infos for products -->
             <div class="col col-2">
                 <div class="expo expo-title">
-                    <p>Смартфон Apple iPhone XR 128GB Белый A2105 (MRYD2RU/A)</p>
+                    <p>{{product.name}}</p>
                 </div>
                 <div class="expo expo-stats">
                    <div class="expo-stats-votes">
@@ -30,89 +29,165 @@
                        <a href="#" class="votes"><i class="ic-star"></i></a>
                        <a href="#" class="votes"><i class="ic-star"></i></a>
                    </div>
-                   <div class="w-separator"></div>
+                   
+                   <!-- <div class="w-separator"></div> -->
+                   <separator :v="true" :h="false"/>
+                    <hr>
                    <div class="expo-stats-orders">
-                        <a href="#">26 orders</a>
+                        <a href="#">{{product.orders}} {{$t('product.orders')}}</a>
                    </div>
-                   <div class="w-separator"></div>
+                   <!-- <div class="w-separator"></div> -->
+                   <separator :v="true" :h="false"/>
+
                    <div class="expo-stats-likes">
-                        <a href="#"><i class="ic-heart-o"></i> 76</a>
+                        <a href="#"><i class="ic-heart-o"></i> {{ product.likes }}</a>
                    </div>
                 </div>
-                <div class="h-separator"></div>
-                <table class="table-expo">
-                    <!-- Price -->
-                    <tr>
-                        <td>Price: </td>
-                        <td><div>€ 6,31 - 7,02</div> </td>
-                    </tr>
-                    <!-- colors -->
-                    <tr class="tr-pin">
-                        <td>Color: </td>
-                        <td>
-                            <div class="article-color-box">
-                                <a href="#" class=" color-item"></a>
-                                <a href="#" class=" color-item"></a>
-                                <a href="#" class=" color-item"></a>
-                                <a href="#" class=" color-item"></a>
-                                <a href="#" class=" color-item"></a>
-                                <a href="#" class=" color-item"></a>
-                            </div> 
-                        </td>
-                    </tr>
-                    <!-- size -->
-                    <tr  class="tr-pin">
-                        <td>Size: </td>
-                        <td>
-                            <div class="article-size-box">
-                                <a href="#" class="size-item">S</a>
-                                <a href="#" class="size-item">M</a>
-                                <a href="#" class="size-item">L</a>
-                                <a href="#" class="size-item">XL</a>
-                                <a href="#" class="size-item">2XL</a>
-                                <a href="#" class="size-item">3XL</a>
-                                <a href="#" class="size-item">4XL</a>
-                            </div> 
-                        </td>
-                    </tr>
 
-                    <tr  class="tr-pin">
-                                <td>Quantity:</td>
-                                <td>
-                                    <div class="numeric_updown">
-                                        <button class="num_down"><i class="ic-minus"></i></button>
-                                        <span class="num_value">0</span>
-                                        <button class="num_up"><i class="ic-add"></i></button>
+                <separator />
+
+                <table class="table-expo">
+                   <tbody>
+                        <!-- Price -->
+                         <tr v-if="product.price_solde != null">
+                            <td> {{ $t('product.price_reduced') }}:  </td>
+                            <td class="text_bared">{{product.price_solde}} </td>
+                        </tr>
+                        <tr>
+                            <td> {{ $t('product.price') }}:  </td>
+                            <td>{{product.price_variant}} </td>
+                        </tr>
+                       
+                        <!-- colors -->
+                        <tr class="tr-pin">
+                            <td><span>{{ $t('product.color') }}: </span></td>
+                            <td>
+                                <div class="article-color-box" >
+                                    <a href="#" class="color-item" v-for="(color, i) in product.colors" :key="i" 
+                                    :title="color.title"
+                                    >
+                                     <img :src="color.content" alt="">
+                                    </a> 
+                                </div> 
+                            </td>
+                        </tr>
+                    
+                        <!-- size -->
+                        <tr  class="tr-pin">
+                            <td>{{$t('product.size')}}: </td>
+                            <td>
+                                <div class="article-size-box">
+                                    <a href="#" class="size-item"  v-for="(size, i) in product.sizes" :key="i">
+                                        {{ size }}
+                                    </a>
+                                </div> 
+                            </td>
+                        </tr>
+
+                        <tr  class="tr-pin">
+                            <td>{{$t('product.quantity')}}:</td>
+                            <td>
+                                <div class="pad-updown">
+                                    <input type="phone" name="" id="" v-model=" product.qte" 
+                                    class="pad-updown-value">
+                                    <div class="pad">
+                                        <button class="pad-up" @click="UpQte"><i class="ic-caret-up" ></i></button>
+                                        <button class="pad-down" @click="DownQte"><i class="ic-caret-down"></i></button>
                                     </div>
-                                </td>
-                    </tr>
+                                </div>
+                            </td>
+                        </tr>
+                     </tbody>
                 </table>
                 <div class="expo-action">
                     <a href="#" class="expo-btn-action btn-1">Buy now</a>
                     <a href="#" class="expo-btn-action btn-2">Add to cart</a>
                 </div>
+
+               
+               <separator />
+
+                <div class="expo-analytic">
+                    <div class="expo-analytic-item" v-for="(feature, i) in product.features" :key="i">
+                        <div class="expo-analytic-item-caption"> {{ feature.caption }}:</div>
+                        <div class="expo-analytic-item-value">{{ feature.value }}</div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- for more details -->
         <div class="x-content-fluid">
-            <h1>details</h1>
+            <div class="row">
+                <h3>More informations</h3>
+            </div>
         </div>
     </div>
 </template>
+
+
 <script>
+import Separator from '@/components/widgets/Separator'
+
 export default {
  validate ({ params }) {
     // Doit être un nombre
     return /^\d+$/.test(params.id)
   },
-  components: {  },
+  components: { Separator  },
   methods:{
         showAuthForm(){
             this.$store.commit('auth/SHOW_AUTH_FORM', true)
         }
+  },
+  data(){
+      return{
+          product:{
+              id: 122,
+              name:'Смартфон Apple iPhone XR 128GB Белый A2105 (MRYD2RU/A)',
+              price: '€ 6,31',
+              price_solde: '€ 16,31',
+              price_variant: '€ 6,31 - 7,02',
+              qte:0,
+              qte_avaible:6, 
+              orders: 26,
+              likes: 73,
+              rates: ['36','0','0','0','0'],
+              image: '/img/smartphones/model.jpg',
+              images: [
+                  '/img/pc/5.jpg',
+                  '/img/pc/6.jpg',
+                  '/img/pc/7.jpg',
+                  '/img/pc/8.jpg'
+              ],
+              colors: [
+                  { type: 'image', content:'/img/smartphones/001.jpg', title: 'Blue'},
+                  { type: 'image', content:'/img/smartphones/002.jpg', title: 'Gray'},
+              ],
+              sizes:['S', 'M', 'L','XL','2XL', '3XL', '4XL'],
+              features: [
+                  { caption: 'Бренд', value: 'APPLE'},
+                  { caption: 'Встроенная память', value: '64 Г'},
+                  { caption: 'Стандарты связи', value: 'GSM/WCDMA/LTE'}
+              ]
+          }
+      }
+  },
+  methods:{
+      UpQte(){
+          if(this.product.qte < this.product.qte_avaible){
+              this.product.qte++
+          }
+      },
+      DownQte(){
+           if(this.product.qte > 0 ){
+              this.product.qte--
+          }
+      }
   }
 }
 </script>
+
+
 <style>
 .w-separator{
     height: 100%;
@@ -125,28 +200,37 @@ export default {
     height: 1px;
     background: #eee;
     margin: 10px 0;
+    
 }
 .x-content-fluid {
     display: flex;
-    padding: 20px 0;
+}
+.x-content-fluid .row{
+    width: 100%;
+    display: flex;
+    background: #fff;
+    padding: 10px;
+     margin: 7px 0;
 }
 .x-content-fluid .col{
     display: flex;
     width: calc(50% - 1px);
+     background: #fff;    
+    margin: 7px 0;
 }
-.x-content-fluid .col-1{
-    background: #fff;
-}
+
 .x-content-fluid .col-2{
     display: flex;
     flex-direction: column;
     padding: 10px;
+    
 }
 
 .col-img-list{
     width: 120px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .col-img-list .img-item{
     width: 68px;
@@ -179,6 +263,7 @@ export default {
 }
 .col-img img{
     width: 300px;
+    height: 500px;
 }
 .col-2 .expo {
     width: 100%;
@@ -215,6 +300,10 @@ export default {
 .article-color-box .color-item:focus
 {
     border-color: var(--orange);
+}
+.article-color-box .color-item img{
+    width: 100%;
+    height: 100%;
 }
 .article-size-box .size-item{
     padding: 5px 10px;
@@ -274,7 +363,7 @@ export default {
 .expo-btn-action{
     padding: 10px 0;
     width: calc(50% - 0px);
-    border-radius: 5px;
+    border-radius: 2px;
     text-align: center;
      color: #fff;
    transition: all 0.3s;
@@ -294,5 +383,27 @@ export default {
 }.expo-btn-action.btn-2:hover{
      background: var(--blue-1);
      opacity: 0.8;
+}
+.expo-analytic{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.expo-analytic-item{
+    display: flex;
+    align-items: center;
+}
+.expo-analytic-item > div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+.expo-analytic-item-caption{
+    height: 30px;
+    color: #888;
+}
+.expo-analytic-item-value{
+    height: 30px;
 }
 </style>

@@ -8,6 +8,7 @@
     "accessoires": "Accessoires",
     "gadgets": "Gadgets",
     "delivery": "Livraison",
+    "guarantee": "Garanties",
     "contacts": "Contacts"
   },
   "links":{
@@ -15,7 +16,26 @@
   },
   "app":{
     "name":"07.Store" 
+  },
+  "product": {
+    "price": "Prix",
+    "price_reduced": "Prix reduit",
+    "color": "Couleur",
+    "quantity": "Quantité",
+    "size": "Taille",
+    "orders": "commandes"
+  },
+  "actions": {
+    "buy": "Acteter",
+    "buyNow": "Acheter maintemant",
+    "addToCart": "Ajouter au panier"
+  },
+  "messages": { 
+    "notFound": "Page non trouvée",
+    "errorOccurred":"Une erreur s'est produite"
+
   }
+  
 }
 
 

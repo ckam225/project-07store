@@ -52,6 +52,7 @@
                 <div class="x-separator"></div>
                 <div class="x-menu-nav">
                     <nuxt-link to="/delivery" class="x-menu-item">{{ $t('menu.delivery') }}</nuxt-link> 
+                    <nuxt-link to="/guarantee" class="x-menu-item">{{ $t('menu.guarantee') }}</nuxt-link> 
                     <nuxt-link to="/contacts" class="x-menu-item">{{ $t('menu.contacts') }}</nuxt-link>
                 </div>
             </div>

@@ -1,13 +1,10 @@
 <template>
-    <div class="x-container mh">
+    <div class="x-container mh"> 
+   
         <div class="x-content">
             <div class="x-col-1"></div>
             <div class="x-col-2">
-                <div class="x-navigator">
-                    <a href="/">Главная</a> 
-                    <span class="separator">&gt;</span> 
-                    <a href="/catalog/smartphones" >Каталог</a>
-                </div>
+               
                 <h3 class="x-panel-title">Смартфоны</h3>
                 <div class="prods">
                     <item v-for="(pdt,i) in $store.state.products.smartphones" :key="i"
@@ -47,7 +44,7 @@ export default {
     margin: 20px 0;
     width: calc(100% - 250px);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; background: #fff;
 }
 .x-content .x-col-2 .prods {
     margin: 20px auto;

@@ -7,6 +7,7 @@
     "accessoires": "Аксессуары",
     "gadgets": "Гаджеты",
     "delivery": "Доставка",
+    "guarantee": "Гарантии",
     "contacts": "Контакты"
   },
   "links":{
@@ -14,5 +15,23 @@
   },
   "app":{
     "name":"07.Store" 
+  },
+  "product": {
+    "price": "цена",
+    "price_reduced": "Сниженная цена",
+    "color": "цвет",
+    "quantity": "количество",
+    "size": "размер",
+    "orders": "заказы"
+  },
+  "actions": {
+    "buy": "купить",
+    "buyNow": "Купить сейчас",
+    "addToCart": "Добавить в корзину"
+  },
+  "messages": { 
+    "notFound": "Страница не найдена",
+    "errorOccurred":"Произошла ошибка"
   }
+  
 }

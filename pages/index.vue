@@ -33,8 +33,9 @@ export default {
 <style>
 .products{
   display: flex;
-  flex-wrap: wrap
-  
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 2px;
 }
  .products > .card {
    width: calc(20% - 10px)
