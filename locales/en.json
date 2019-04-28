@@ -22,7 +22,8 @@
      "color": "Color",
      "quantity": "Quantity",
      "size": "Size",
-     "orders": "orders"
+     "orders": "orders",
+     "payment": "Payment"
    },
    "actions": {
      "buy": "Buy",

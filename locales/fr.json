@@ -23,7 +23,8 @@
     "color": "Couleur",
     "quantity": "Quantité",
     "size": "Taille",
-    "orders": "commandes"
+    "orders": "commandes",
+    "payment": "Paiement"
   },
   "actions": {
     "buy": "Acteter",

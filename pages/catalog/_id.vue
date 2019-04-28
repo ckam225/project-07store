@@ -14,8 +14,8 @@
                 </div>
             </div>
 
-             <!-- <div class="w-separator"></div> -->
-             <hr>
+             <div class="w-separator"></div>
+             <!-- <hr> -->
             <!-- infos for products -->
             <div class="col col-2">
                 <div class="expo expo-title">
@@ -29,7 +29,7 @@
                        <a href="#" class="votes"><i class="ic-star"></i></a>
                        <a href="#" class="votes"><i class="ic-star"></i></a>
                    </div>
-                   
+                
                    <!-- <div class="w-separator"></div> -->
                    <separator :v="true" :h="false"/>
                     <hr>
@@ -49,13 +49,13 @@
                 <table class="table-expo">
                    <tbody>
                         <!-- Price -->
-                         <tr v-if="product.price_solde != null">
+                         <tr v-if="product.discount_price != null">
                             <td> {{ $t('product.price_reduced') }}:  </td>
-                            <td class="text_bared">{{product.price_solde}} </td>
+                            <td class="text_bared">{{product.discount_price}} </td>
                         </tr>
                         <tr>
                             <td> {{ $t('product.price') }}:  </td>
-                            <td>{{product.price_variant}} </td>
+                            <td>{{product.var_price}} </td>
                         </tr>
                        
                         <!-- colors -->
@@ -100,25 +100,38 @@
                      </tbody>
                 </table>
                 <div class="expo-action">
-                    <a href="#" class="expo-btn-action btn-1">Buy now</a>
+                    <a href="#" class="expo-btn-action btn-1 btn-disabled">Buy now</a>
                     <a href="#" class="expo-btn-action btn-2">Add to cart</a>
                 </div>
 
                
-               <separator />
-
-                <div class="expo-analytic">
-                    <div class="expo-analytic-item" v-for="(feature, i) in product.features" :key="i">
-                        <div class="expo-analytic-item-caption"> {{ feature.caption }}:</div>
-                        <div class="expo-analytic-item-value">{{ feature.value }}</div>
-                    </div>
-                </div>
+               <!-- <separator /> -->
+               <!-- payment mode -->
+               <div class="list-row">
+                   <a href="#" class="list-row-item"><img src="/img/payment/visa.png" alt=""></a>
+                   <a href="#" class="list-row-item"><img src="/img/payment/mastercard.png" alt=""></a>
+                   <a href="#" class="list-row-item"><img src="/img/payment/maestro.png" alt=""></a>
+                   <a href="#" class="list-row-item"><img src="/img/payment/paypal.png" alt=""></a>
+               </div>
+                
             </div>
         </div>
         <!-- for more details -->
         <div class="x-content-fluid">
-            <div class="row">
-                <h3>More informations</h3>
+            
+            <div class="panel">
+                <div class="panel-title">
+                    <h3>More informations</h3>
+                </div>
+                <div class="panel-body ">
+                    <div class="expo-analytic">
+                        <div class="expo-analytic-item" v-for="(feature, i) in product.features" :key="i">
+                            <div class="expo-analytic-item-caption"> {{ feature.caption }}:</div>
+                            <div class="expo-analytic-item-value">{{ feature.value }}</div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -141,12 +154,14 @@ export default {
   },
   data(){
       return{
+          
           product:{
               id: 122,
               name:'Смартфон Apple iPhone XR 128GB Белый A2105 (MRYD2RU/A)',
-              price: '€ 6,31',
-              price_solde: '€ 16,31',
-              price_variant: '€ 6,31 - 7,02',
+              description:'Смартфон Apple iPhone XR 128GB Белый A2105 (MRYD2RU/A)',
+              regular_price: '€ 6,31',
+              discount_price: '€ 16,31',
+              var_price: '€ 6,31 - 7,02',
               qte:0,
               qte_avaible:6, 
               orders: 26,
@@ -160,8 +175,8 @@ export default {
                   '/img/pc/8.jpg'
               ],
               colors: [
-                  { type: 'image', content:'/img/smartphones/001.jpg', title: 'Blue'},
-                  { type: 'image', content:'/img/smartphones/002.jpg', title: 'Gray'},
+                  { type: 'image', content:'/img/smartphones/001.jpg', title: 'Blue', price: 0},
+                  { type: 'image', content:'/img/smartphones/002.jpg', title: 'Gray', price: 0},
               ],
               sizes:['S', 'M', 'L','XL','2XL', '3XL', '4XL'],
               features: [
@@ -212,6 +227,7 @@ export default {
     padding: 10px;
      margin: 7px 0;
 }
+
 .x-content-fluid .col{
     display: flex;
     width: calc(50% - 1px);
@@ -406,4 +422,14 @@ export default {
 .expo-analytic-item-value{
     height: 30px;
 }
+.list-row-item{
+  margin: 5px;
+}
+.list-row-item img{
+  width: 64px;
+}
+.btn-disabled{
+  background:#fafafa;
+  color: #777; 
+} 
 </style>
