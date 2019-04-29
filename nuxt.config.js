@@ -21,7 +21,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['axios'],
     /*
     ** Run ESLint on save
     */
@@ -46,6 +45,10 @@ module.exports = {
     '~/assets/css/colors.css',
     '~/assets/css/app.css',
     '~/assets/css/responsive.css',
-  ]
+  ],
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    baseURL: 'http://localhost:8000/api'
+  },
 }
 
