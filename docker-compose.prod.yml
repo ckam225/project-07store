@@ -9,5 +9,5 @@ services:
     volumes:
       - ./frontend:/app:cached
     ports:
-      - 80:80
+      - ${EXTERNAL_PORT}:80
 
