@@ -2,12 +2,17 @@ version: '3.7'
 
 services:
   frontend:
-    build: frontend
+    build:
+      args: 
+        - NODE_ENV=production
     restart: always
     environment:
       - VUE_APP_API_URL=${API_URL}
-    volumes:
-      - ./frontend:/app:cached
+
+  nginx:
+    build: server
+    restart: always
     ports:
       - ${EXTERNAL_PORT}:80
 
+  
