@@ -8,7 +8,7 @@ RUN yarn
 
 COPY . .
 
-RUN yarn run build
+RUN yarn build && yarn generate
 
 # production stage
 FROM nginx as production
