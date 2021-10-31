@@ -1,22 +1,20 @@
 FROM node:12 as build
 
-ARG NODE_ENV
-
+RUN mkdir -p /app
 WORKDIR /app
 
-COPY ./package.json ./yarn.lock ./
+RUN apt update
+RUN apt install git
 
+COPY . /app
 RUN yarn install
-
-ENV NODE_ENV ${NODE_ENV}
-
-COPY . .
 
 RUN yarn build
 
-ENV HOST 0.0.0.0
 EXPOSE 3000
 
+ENV NUXT_HOST=0.0.0.0
+
+ENV NUXT_PORT=3000
+
 CMD [ "yarn", "start" ]
-
-
