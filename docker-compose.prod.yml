@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  frontend:
+    build: frontend
+    restart: always
+    environment:
+      - VUE_APP_API_URL=${API_URL}
+    volumes:
+      - ./frontend:/app:cached
+    ports:
+      - 80:80
+
